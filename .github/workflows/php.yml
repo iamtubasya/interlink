@@ -1,0 +1,22 @@
+name: PHP Tiap 4 Jam Lewat 2 Menit WIB
+
+on:
+  schedule:
+    - cron: '2 0,4,8,12,16,20 * * *'  # UTC: 07:02, 11:02, 15:02, 19:02, 23:02, 03:02 WIB
+  workflow_dispatch:
+
+jobs:
+  run-php:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Jalankan script.php
+        run: php script.php
