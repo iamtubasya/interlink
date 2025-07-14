@@ -1,0 +1,13 @@
+name: Tes Cron Tiap 1 Menit
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'
+  workflow_dispatch:
+
+jobs:
+  cron-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Jalankan per menit
+        run: date -u
